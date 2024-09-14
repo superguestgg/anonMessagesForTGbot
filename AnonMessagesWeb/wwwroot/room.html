@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Send Message Form</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+<div class="header">
+    <h1 id="roomNameTitle" class="room-name">Room Name</h1>
+</div>
+<div class="form-container">
+    <form id="sendMessageForm">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" class="rounded-input">
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" class="rounded-input"></textarea>
+
+        <button type="button" onclick="sendMessage(event)" class="rounded-button">Send Message</button>
+    </form>
+</div>
+
+<script>
+    document.getElementById('roomNameTitle').innerText = 
+        window.location.pathname.split('/').pop().split('.')[0];
+
+    function sendMessage() {
+        const pathArray = window.location.pathname.split('/');
+        const roomName = pathArray[pathArray.length - 1].split('.')[0];
+        const password = document.getElementById('password').value;
+        const message = document.getElementById('message').value;
+
+        const formData = new FormData();
+        formData.append('roomName', roomName);
+        formData.append('password', password);
+        formData.append('message', message);
+        fetch('/api/AnonMessage/SendMessageForm', {
+            method: 'POST',
+            body: formData
+        })
+            .then(response => response.text())
+            .then(data => console.log(data))
+            .catch(error => console.error('Error:', error));
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\User\\RiderProjects\\AnonimMessagesWeb\\AnonimMessagesWeb\\wwwroot\\index.html",
+      "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "C:\\Users\\User\\RiderProjects\\AnonimMessagesWeb\\AnonimMessagesWeb\\wwwroot\\room.html",
+      "PackagePath": "staticwebassets\\room.html"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.AnonimMessagesWeb.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.build.AnonimMessagesWeb.props",
+      "PackagePath": "build\\AnonimMessagesWeb.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.AnonimMessagesWeb.props",
+      "PackagePath": "buildMultiTargeting\\AnonimMessagesWeb.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildTransitive.AnonimMessagesWeb.props",
+      "PackagePath": "buildTransitive\\AnonimMessagesWeb.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

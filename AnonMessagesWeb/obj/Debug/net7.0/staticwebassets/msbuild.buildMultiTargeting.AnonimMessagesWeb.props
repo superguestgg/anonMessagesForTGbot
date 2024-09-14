@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\AnonimMessagesWeb.props" />
+</Project>
