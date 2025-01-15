@@ -1,21 +1,29 @@
 using System.Net.Http.Headers;
 using System.Text;
+using Microsoft.Extensions.Options;
 
 namespace AnonMessagesWeb;
 
 public class AnonMessageService : IAnonMessageService
 {
-    private const string TelegramBotUrl = "https://functions.yandexcloud.net/d4e99li3ond8e6ug1bsu";
+    private readonly HttpClient _httpClient;
+    private readonly string _telegramBotUrl;
+    private const string HeaderName = "Dick";
     
-    public async Task<string> SendMessage(string roomName, string password, string message)
+    public AnonMessageService(HttpClient httpClient, IOptions<AnonMessagesConfiguration> options)
     {
-        var h = new HttpClient();
-        var st = $"{{'roomName':'{roomName}', 'password': '{password}', 'message':'{message}'}}";
-        var c = new StringContent(st.Replace('\'', '"'));
-        c.Headers.ContentType = new MediaTypeHeaderValue("application/json");
-        c.Headers.Add("Dick", "suck");
-        var d = await h.PostAsync(TelegramBotUrl, c
+        _httpClient = httpClient;
+        _telegramBotUrl = options.Value.TelegramBotUrl;
+    }
+    
+    public async Task<string> SendMessage(string roomName, string? password, string message)
+    {
+        var dataString = $"{{'roomName':'{roomName}', 'password': '{password}', 'message':'{message}'}}";
+        var content = new StringContent(dataString.Replace('\'', '"'));
+        content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+        content.Headers.Add(HeaderName, "suck");
+        var botAnswer = await _httpClient.PostAsync(_telegramBotUrl, content
             );
-        return d.Content.ToString();
+        return botAnswer.Content.ToString();
     }
 }

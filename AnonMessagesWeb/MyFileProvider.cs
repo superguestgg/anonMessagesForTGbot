@@ -3,54 +3,59 @@ using Microsoft.Extensions.Primitives;
 
 namespace AnonMessagesWeb;
 
-class MyFileProvider : IFileProvider
+internal class MyFileProvider : IFileProvider
 {
-    private readonly IFileProvider _hfp;
-    private readonly IFileProvider _sfp;
+    private readonly IFileProvider _htmlFp;
+    private readonly IFileProvider _stylesFp;
     
-    public MyFileProvider(IFileProvider hfp, IFileProvider sfp)
+    public MyFileProvider(IFileProvider htmlFp, IFileProvider stylesFp)
     {
-        _hfp = hfp;
-        _sfp = sfp;
+        _htmlFp = htmlFp;
+        _stylesFp = stylesFp;
     }
     
     public IDirectoryContents GetDirectoryContents(string subpath)
     {
         Console.WriteLine(subpath);
-
-        if (subpath.Split(".").Last() == "html")
+        return GetFileExtension(subpath) switch
         {
-            return _hfp.GetDirectoryContents("room.html");
-        }
-        if (subpath.Split(".").Last() == "css")
-            return _sfp.GetDirectoryContents("styles.css");
-        return _sfp.GetDirectoryContents(subpath);
+            "html" => _htmlFp.GetDirectoryContents("room.html"),
+            "css" => _stylesFp.GetDirectoryContents("styles.css"),
+            _ => _stylesFp.GetDirectoryContents(subpath)
+        };
     }
 
     public IFileInfo GetFileInfo(string subpath)
     {
         Console.WriteLine(subpath);
-        if (subpath.Split(".").Last() == "html")
+        switch (GetFileExtension(subpath))
         {
-            if (subpath.Contains("/index.html"))
-                return _hfp.GetFileInfo("index.html");
-            if (_hfp.GetDirectoryContents(subpath).Exists)
-                return _hfp.GetFileInfo(subpath);
-            return _hfp.GetFileInfo("room.html");
+            case "html":
+                if (subpath.Contains("/index.html"))
+                    return _htmlFp.GetFileInfo("index.html");
+                if (_htmlFp.GetDirectoryContents(subpath).Exists)
+                    return _htmlFp.GetFileInfo(subpath);
+                return _htmlFp.GetFileInfo("room.html");
+            case "css":
+                return _stylesFp.GetFileInfo("styles.css");
+            default:
+                return _stylesFp.GetFileInfo(subpath);
         }
-        if (subpath.Split(".").Last() == "css")
-            return _sfp.GetFileInfo("styles.css");
-        return _sfp.GetFileInfo(subpath);
     }
 
     public IChangeToken Watch(string filter)
     {
         Console.WriteLine(filter);
+        return GetFileExtension(filter) switch
+        {
+            "html" => _htmlFp.Watch("room.html"),
+            "css" => _stylesFp.Watch("styles.css"),
+            _ => _stylesFp.Watch(filter)
+        };
+    }
 
-        if (filter.Split(".").Last() == "html")
-            return _hfp.Watch("room.html");
-        if (filter.Split(".").Last() == "css")
-            return _sfp.Watch("styles.css");
-        return _sfp.Watch(filter);
+    private static string GetFileExtension(string filename)
+    {
+        return filename.Split(".").Last();
     }
 }

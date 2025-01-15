@@ -14,13 +14,13 @@ public class AnonMessageController : Controller
     }
 
     [HttpPost("sendMessage/{roomName}")]
-    public Task<string> SendMessage([FromRoute] string roomName, [FromForm] string password, [FromForm] string message)
+    public Task<string> SendMessage([FromRoute] string roomName, [FromForm] string? password, [FromForm] string message)
     {
         return _am.SendMessage(roomName, password, message);
     }
     
     [HttpPost("SendMessageForm")]
-    public Task<string> SendMessageForm([FromForm] string roomName, [FromForm] string password, [FromForm] string message)
+    public Task<string> SendMessageForm([FromForm] string roomName, [FromForm] string? password, [FromForm] string message)
     {
         return _am.SendMessage(roomName, password, message);
     }

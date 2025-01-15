@@ -1,27 +1,27 @@
 {
   "Version": 1,
-  "Hash": "XWquZ90I0m05QA1npWghzR/L0hjFk3NsjDG7eLvmWfg=",
-  "Source": "AnonimMessagesWeb",
-  "BasePath": "_content/AnonimMessagesWeb",
+  "Hash": "wRwyEg0YkPdJpPgvCNFDbs2jFS6aKygnkZv7X4GGpxo=",
+  "Source": "AnonMessagesWeb",
+  "BasePath": "_content/AnonMessagesWeb",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
   "DiscoveryPatterns": [
     {
-      "Name": "AnonimMessagesWeb\\wwwroot",
-      "Source": "AnonimMessagesWeb",
-      "ContentRoot": "C:\\Users\\User\\RiderProjects\\AnonimMessagesWeb\\AnonimMessagesWeb\\wwwroot\\",
-      "BasePath": "_content/AnonimMessagesWeb",
+      "Name": "AnonMessagesWeb\\wwwroot",
+      "Source": "AnonMessagesWeb",
+      "ContentRoot": "C:\\Users\\User\\RiderProjects\\AnonMessagesWeb\\AnonMessagesWeb\\wwwroot\\",
+      "BasePath": "_content/AnonMessagesWeb",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\User\\RiderProjects\\AnonimMessagesWeb\\AnonimMessagesWeb\\wwwroot\\index.html",
-      "SourceId": "AnonimMessagesWeb",
+      "Identity": "C:\\Users\\User\\RiderProjects\\AnonMessagesWeb\\AnonMessagesWeb\\wwwroot\\index.html",
+      "SourceId": "AnonMessagesWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\User\\RiderProjects\\AnonimMessagesWeb\\AnonimMessagesWeb\\wwwroot\\",
-      "BasePath": "_content/AnonimMessagesWeb",
+      "ContentRoot": "C:\\Users\\User\\RiderProjects\\AnonMessagesWeb\\AnonMessagesWeb\\wwwroot\\",
+      "BasePath": "_content/AnonMessagesWeb",
       "RelativePath": "index.html",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -34,11 +34,11 @@
       "OriginalItemSpec": "wwwroot\\index.html"
     },
     {
-      "Identity": "C:\\Users\\User\\RiderProjects\\AnonimMessagesWeb\\AnonimMessagesWeb\\wwwroot\\room.html",
-      "SourceId": "AnonimMessagesWeb",
+      "Identity": "C:\\Users\\User\\RiderProjects\\AnonMessagesWeb\\AnonMessagesWeb\\wwwroot\\room.html",
+      "SourceId": "AnonMessagesWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\User\\RiderProjects\\AnonimMessagesWeb\\AnonimMessagesWeb\\wwwroot\\",
-      "BasePath": "_content/AnonimMessagesWeb",
+      "ContentRoot": "C:\\Users\\User\\RiderProjects\\AnonMessagesWeb\\AnonMessagesWeb\\wwwroot\\",
+      "BasePath": "_content/AnonMessagesWeb",
       "RelativePath": "room.html",
       "AssetKind": "All",
       "AssetMode": "All",
