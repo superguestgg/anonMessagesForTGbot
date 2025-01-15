@@ -29,7 +29,10 @@ public static class Program
         builder.Services.AddScoped<IAnonMessageService, AnonMessageService>();
         builder.Services.AddSwaggerGen();
         builder.Services.AddControllers();
-        builder.Services.AddHttpClient();
+        builder.Services.AddHttpClient("Telegram", client =>
+        {
+            client.BaseAddress = new Uri("https://api.example.com");
+        });
         return builder;
     }
 }

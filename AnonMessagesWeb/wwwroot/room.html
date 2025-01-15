@@ -18,6 +18,7 @@
 
         <button type="button" onclick="sendMessage(event)" class="rounded-button">Send Message</button>
     </form>
+    <div id="answer"> </div>
 </div>
 
 <script>
@@ -39,7 +40,10 @@
             body: formData
         })
             .then(response => response.text())
-            .then(data => console.log(data))
+            .then(data => {
+                console.log(data);
+                document.getElementById("answer").innerHTML = data;
+            })
             .catch(error => console.error('Error:', error));
     }
 </script>

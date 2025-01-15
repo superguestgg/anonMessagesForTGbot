@@ -8,11 +8,11 @@ public class AnonMessageService : IAnonMessageService
 {
     private readonly HttpClient _httpClient;
     private readonly string _telegramBotUrl;
-    private const string HeaderName = "Dick";
+    private const string HeaderName = "FromSite";
     
-    public AnonMessageService(HttpClient httpClient, IOptions<AnonMessagesConfiguration> options)
+    public AnonMessageService(IHttpClientFactory httpClientFactory, IOptions<AnonMessagesConfiguration> options)
     {
-        _httpClient = httpClient;
+        _httpClient = httpClientFactory.CreateClient("Telegram");
         _telegramBotUrl = options.Value.TelegramBotUrl;
     }
     
@@ -21,9 +21,9 @@ public class AnonMessageService : IAnonMessageService
         var dataString = $"{{'roomName':'{roomName}', 'password': '{password}', 'message':'{message}'}}";
         var content = new StringContent(dataString.Replace('\'', '"'));
         content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
-        content.Headers.Add(HeaderName, "suck");
+        content.Headers.Add(HeaderName, "yes");
         var botAnswer = await _httpClient.PostAsync(_telegramBotUrl, content
             );
-        return botAnswer.Content.ToString();
+        return await botAnswer.Content.ReadAsStringAsync();
     }
 }
