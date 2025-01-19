@@ -1,5 +1,4 @@
 using System.Net.Http.Headers;
-using System.Text;
 using Microsoft.Extensions.Options;
 
 namespace AnonMessagesWeb;
@@ -22,14 +21,17 @@ public class AnonMessageService : IAnonMessageService
         {
             { "roomName", roomName },
             { "password", password?? "null" },
-            { "message", message }
+            { "message", message
+                .Replace("\r\n", " ")
+                .Replace("\n", " ") }
         });
-        Console.WriteLine(dataString);
         var content = new StringContent(dataString);
+        
         content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
         content.Headers.Add(HeaderName, "yes");
-        var botAnswer = await _httpClient.PostAsync(_telegramBotUrl, content
-            );
+        
+        var botAnswer = await _httpClient.PostAsync(_telegramBotUrl, content);
+        
         return await botAnswer.Content.ReadAsStringAsync();
     }
 }
