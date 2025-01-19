@@ -8,7 +8,7 @@ public class AnonMessageService : IAnonMessageService
 {
     private readonly HttpClient _httpClient;
     private readonly string _telegramBotUrl;
-    private const string HeaderName = "FromSite";
+    private const string HeaderName = "Fromsite";
     
     public AnonMessageService(IHttpClientFactory httpClientFactory, IOptions<AnonMessagesConfiguration> options)
     {
@@ -18,8 +18,14 @@ public class AnonMessageService : IAnonMessageService
     
     public async Task<string> SendMessage(string roomName, string? password, string message)
     {
-        var dataString = $"{{'roomName':'{roomName}', 'password': '{password}', 'message':'{message}'}}";
-        var content = new StringContent(dataString.Replace('\'', '"'));
+        var dataString = JsonLite.EncodeDictionary(new Dictionary<string, string>()
+        {
+            { "roomName", roomName },
+            { "password", password?? "null" },
+            { "message", message }
+        });
+        Console.WriteLine(dataString);
+        var content = new StringContent(dataString);
         content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
         content.Headers.Add(HeaderName, "yes");
         var botAnswer = await _httpClient.PostAsync(_telegramBotUrl, content
