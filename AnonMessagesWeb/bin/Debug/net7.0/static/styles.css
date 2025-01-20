@@ -90,12 +90,25 @@ textarea {
     padding: 15px;
     width: 50%;
     margin: 50px auto;
-    background-color: #e7f5e6;
-    border-left: 5px solid #4caf50;
+    background-color: #ffffff;
+    border-left: 5px solid dimgrey;
     border-radius: 5px;
     color: #333;
     font-size: 14px;
     white-space: pre-wrap;
+    transition: ease-in-out 0.5s;
+}
+
+.answer.success {
+    background-color: #e7f5e6;
+    border-left: 5px solid #4caf50;
+    color: #333;
+}
+
+.answer.error {
+    background-color: #f5e6e8;
+    border-left: 5px solid indianred;
+    color: #333;
 }
 
 .answer.show {

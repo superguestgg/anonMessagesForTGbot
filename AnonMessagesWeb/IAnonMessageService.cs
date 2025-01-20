@@ -1,6 +1,8 @@
+using System.Net;
+
 namespace AnonMessagesWeb;
 
 public interface IAnonMessageService
 {
-    Task<string> SendMessage(string roomName, string? password, string message);
+    Task<Tuple<HttpStatusCode, string>> SendMessage(string roomName, string? password, string message);
 }

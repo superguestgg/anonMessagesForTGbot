@@ -1,3 +1,4 @@
+using System.Net;
 using System.Net.Http.Headers;
 using Microsoft.Extensions.Options;
 
@@ -15,7 +16,7 @@ public class AnonMessageService : IAnonMessageService
         _telegramBotUrl = options.Value.TelegramBotUrl;
     }
     
-    public async Task<string> SendMessage(string roomName, string? password, string message)
+    public async Task<Tuple<HttpStatusCode, string>> SendMessage(string roomName, string? password, string message)
     {
         var dataString = JsonLite.EncodeDictionary(new Dictionary<string, string>()
         {
@@ -31,7 +32,8 @@ public class AnonMessageService : IAnonMessageService
         content.Headers.Add(HeaderName, "yes");
         
         var botAnswer = await _httpClient.PostAsync(_telegramBotUrl, content);
-        
-        return await botAnswer.Content.ReadAsStringAsync();
+        var answer = await botAnswer.Content.ReadAsStringAsync();
+        var answerStatus = botAnswer.StatusCode;
+        return new Tuple<HttpStatusCode, string>(answerStatus, answer);
     }
 }

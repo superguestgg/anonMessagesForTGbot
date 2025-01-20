@@ -1,3 +1,4 @@
+using System.Net;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AnonMessagesWeb;
@@ -14,14 +15,18 @@ public class AnonMessageController : Controller
     }
 
     [HttpPost("sendMessage/{roomName}")]
-    public Task<string> SendMessage([FromRoute] string roomName, [FromForm] string? password, [FromForm] string message)
+    public async Task<string> SendMessage([FromRoute] string roomName, [FromForm] string? password, [FromForm] string message)
     {
-        return _am.SendMessage(roomName, password, message);
+        return (await _am.SendMessage(roomName, password, message)).Item2;
     }
     
     [HttpPost("SendMessageForm")]
-    public Task<string> SendMessageForm([FromForm] string roomName, [FromForm] string? password, [FromForm] string message)
+    public async Task<ActionResult<string>> SendMessageForm([FromForm] string roomName, [FromForm] string? password, [FromForm] string message)
     {
-        return _am.SendMessage(roomName, password, message);
+        var answer = await _am.SendMessage(roomName, password, message);
+        if (answer.Item1 == HttpStatusCode.OK)
+            return new ActionResult<string>(answer.Item2);
+        return StatusCode((int)answer.Item1
+            , answer.Item2);
     }
 }

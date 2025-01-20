@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "Hash": "wRwyEg0YkPdJpPgvCNFDbs2jFS6aKygnkZv7X4GGpxo=",
+  "Source": "AnonMessagesWeb",
+  "BasePath": "_content/AnonMessagesWeb",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "AnonMessagesWeb\\wwwroot",
+      "Source": "AnonMessagesWeb",
+      "ContentRoot": "C:\\Users\\User\\RiderProjects\\AnonMessagesWeb\\AnonMessagesWeb\\wwwroot\\",
+      "BasePath": "_content/AnonMessagesWeb",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\User\\RiderProjects\\AnonMessagesWeb\\AnonMessagesWeb\\wwwroot\\index.html",
+      "SourceId": "AnonMessagesWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\RiderProjects\\AnonMessagesWeb\\AnonMessagesWeb\\wwwroot\\",
+      "BasePath": "_content/AnonMessagesWeb",
+      "RelativePath": "index.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\index.html"
+    },
+    {
+      "Identity": "C:\\Users\\User\\RiderProjects\\AnonMessagesWeb\\AnonMessagesWeb\\wwwroot\\room.html",
+      "SourceId": "AnonMessagesWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\RiderProjects\\AnonMessagesWeb\\AnonMessagesWeb\\wwwroot\\",
+      "BasePath": "_content/AnonMessagesWeb",
+      "RelativePath": "room.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\room.html"
+    }
+  ]
+}

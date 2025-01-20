@@ -1,0 +1,17 @@
+C:\Users\User\RiderProjects\AnonMessagesWeb\AnonMessagesWeb\publish\AnonMessagesWeb.exe
+C:\Users\User\RiderProjects\AnonMessagesWeb\AnonMessagesWeb\publish\publish\web.config
+C:\Users\User\RiderProjects\AnonMessagesWeb\AnonMessagesWeb\publish\appsettings.Development.json
+C:\Users\User\RiderProjects\AnonMessagesWeb\AnonMessagesWeb\publish\appsettings.json
+C:\Users\User\RiderProjects\AnonMessagesWeb\AnonMessagesWeb\publish\publish\AnonMessagesWeb.deps.json
+C:\Users\User\RiderProjects\AnonMessagesWeb\AnonMessagesWeb\publish\publish\AnonMessagesWeb.runtimeconfig.json
+C:\Users\User\RiderProjects\AnonMessagesWeb\AnonMessagesWeb\publish\publish\appsettings.Development.json
+C:\Users\User\RiderProjects\AnonMessagesWeb\AnonMessagesWeb\publish\publish\appsettings.json
+C:\Users\User\RiderProjects\AnonMessagesWeb\AnonMessagesWeb\publish\static\styles.css
+C:\Users\User\RiderProjects\AnonMessagesWeb\AnonMessagesWeb\publish\AnonMessagesWeb.dll
+C:\Users\User\RiderProjects\AnonMessagesWeb\AnonMessagesWeb\publish\AnonMessagesWeb.deps.json
+C:\Users\User\RiderProjects\AnonMessagesWeb\AnonMessagesWeb\publish\AnonMessagesWeb.runtimeconfig.json
+C:\Users\User\RiderProjects\AnonMessagesWeb\AnonMessagesWeb\publish\AnonMessagesWeb.pdb
+C:\Users\User\RiderProjects\AnonMessagesWeb\AnonMessagesWeb\publish\Microsoft.OpenApi.dll
+C:\Users\User\RiderProjects\AnonMessagesWeb\AnonMessagesWeb\publish\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\User\RiderProjects\AnonMessagesWeb\AnonMessagesWeb\publish\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\User\RiderProjects\AnonMessagesWeb\AnonMessagesWeb\publish\Swashbuckle.AspNetCore.SwaggerUI.dll
